@@ -7,7 +7,7 @@ public record Country(
         String countryCode
 ) {
 
-    public static CountryEntity toEntity(Country country) {
+    public CountryEntity toEntity(Country country) {
         CountryEntity countryEntity = new CountryEntity();
         countryEntity.setCountryName(country.countryName);
         countryEntity.setCountryCode(country.countryCode);

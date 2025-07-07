@@ -28,7 +28,7 @@ public class DbCountryService implements CountryService {
 
     @Override
     public Country addCountry(Country country) {
-        CountryEntity countryEntity = countryRepository.save(Country.toEntity(country));
+        CountryEntity countryEntity = countryRepository.save(country.toEntity(country));
         return Country.fromEntity(countryEntity);
     }
 
