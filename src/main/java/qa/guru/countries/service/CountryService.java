@@ -18,6 +18,8 @@ public interface CountryService {
 
     Slice<CountryGraphql> allCountriesGraphql(Pageable pageable);
 
+    List<CountryGraphql> allCountriesGraphql();
+
     CountryGraphql addCountryGraphql(CountryInputGraphql country);
 
     CountryGraphql editCountryNameGraphql(CountryInputGraphql country);
