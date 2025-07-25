@@ -3,7 +3,6 @@ package qa.guru.countries.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Slice;
 import org.springframework.stereotype.Service;
 import qa.guru.countries.data.CountryEntity;
 import qa.guru.countries.data.CountryRepository;
@@ -49,6 +48,13 @@ public class DbCountryService implements CountryService {
     public Page<CountryGraphql> allCountriesGraphql(Pageable pageable) {
         return countryRepository.findAll(pageable)
                 .map(CountryGraphql::fromEntity);
+    }
+
+    @Override
+    public List<CountryGraphql> allCountriesGraphql() {
+        return countryRepository.findAll().stream()
+                .map(CountryGraphql::fromEntity)
+                .toList();
     }
 
     @Override
